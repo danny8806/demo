@@ -101,7 +101,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Ucode Infotech"
-                className="w-9 h-9 object-contain transition-transform duration-500 group-hover:scale-110"
+                className="w-12 h-12 object-contain transition-transform duration-500 group-hover:scale-110"
               />
               <span className="text-xl font-bold text-white tracking-tight">
                 Ucode <span className="text-[#9A8FFA]">Infotech</span>
