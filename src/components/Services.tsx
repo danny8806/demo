@@ -183,41 +183,49 @@ export default function Services() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4 border border-[#9A8FFA]/20"
+            >
               Why Choose Us
-            </span>
+            </motion.span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a0a1a]">
               Kickstart Your{" "}
               <span className="gradient-text-animated">Digital Journey</span> with Us
             </h2>
-            <p className="mt-4 text-lg text-zinc-600">
-              We offer a wide range of digital solutions tailored to your business needs. From web development to digital marketing, we have you covered.
+            <p className="mt-4 text-lg text-zinc-600 max-w-2xl mx-auto">
+              We offer a wide range of digital solutions tailored to your business needs.
             </p>
           </div>
         </ScrollReveal>
 
         <LayoutGroup>
-          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {featuresList.map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
-                <GradientBorder className="rounded-2xl">
+                <GradientBorder className="rounded-2xl h-full">
                 <GlareCard glareColor="rgba(154, 143, 250, 0.06)">
                 <motion.div
                   layout
-                  className="group relative bg-white rounded-2xl p-6 cursor-default hover:shadow-xl hover:shadow-[#9A8FFA]/5 transition-shadow duration-500"
-                  style={{ borderColor: item.border }}
+                  whileHover={{ y: -4 }}
+                  className="group relative bg-white rounded-2xl p-7 cursor-default hover:shadow-xl hover:shadow-[#9A8FFA]/10 transition-all duration-500 h-full border border-zinc-100"
                 >
-              <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  {item.icon}
+                <div
+                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}
+                />
+                <div className="flex flex-col items-center text-center gap-4 relative z-10">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#9A8FFA]/30`}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-[#0a0a1a] group-hover:text-[#9A8FFA] transition-colors duration-300">{item.title}</h3>
+                    <p className="text-sm text-zinc-500 mt-1.5 leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#0a0a1a]">{item.title}</h3>
-                  <p className="text-sm text-zinc-500 mt-1 leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
                 </GlareCard>
                 </GradientBorder>
               </ScrollReveal>
@@ -225,8 +233,19 @@ export default function Services() {
           </motion.div>
         </LayoutGroup>
 
+        <div className="relative mb-16">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-zinc-200" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="px-6 py-2 bg-white text-zinc-400 text-sm rounded-full border border-zinc-200 shadow-sm">
+              Explore Our Expertise
+            </span>
+          </div>
+        </div>
+
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a0a1a]">
               Our <span className="gradient-text-animated">Services</span>
             </h2>
@@ -237,7 +256,7 @@ export default function Services() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-12 p-1.5 bg-zinc-50 rounded-2xl max-w-fit mx-auto">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-12 p-1.5 bg-zinc-50/80 rounded-2xl max-w-fit mx-auto border border-zinc-200/50">
             {filterTags.map((tag) => (
               <button
                 key={tag}
@@ -245,7 +264,7 @@ export default function Services() {
                 className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeFilter === tag
                     ? "text-white"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+                    : "text-zinc-600 hover:text-zinc-900"
                 }`}
               >
                 {activeFilter === tag && (
@@ -275,32 +294,41 @@ export default function Services() {
                   transition={{ duration: 0.3 }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className="service-card group relative bg-white rounded-2xl p-8 border border-zinc-200 hover:border-transparent cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="service-card group relative bg-white rounded-2xl p-8 border border-zinc-200 hover:border-transparent cursor-pointer transition-all duration-500"
                 >
                 <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`}
                 />
                 <div
-                  className={`absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}
+                  className={`absolute -top-10 -right-10 w-24 h-24 rounded-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700`}
+                />
+                <div
+                  className={`absolute -bottom-10 -left-10 w-24 h-24 rounded-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-700 delay-100`}
                 />
 
                 <div className="relative z-10">
-                  <div
-                    className={`service-icon w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white mb-6 transition-all duration-500 ${
-                      hoveredIndex === index ? "scale-110 rotate-3 shadow-lg" : ""
-                    }`}
-                  >
-                    {service.icon}
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white transition-all duration-500 shadow-lg shadow-[#9A8FFA]/10 ${
+                        hoveredIndex === index ? "scale-110 -rotate-3 shadow-xl shadow-[#9A8FFA]/30" : ""
+                      }`}
+                    >
+                      {service.icon}
+                    </div>
+                    <span className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-zinc-100 text-zinc-400 group-hover:bg-[#9A8FFA]/10 group-hover:text-[#9A8FFA] transition-all duration-300`}>
+                      {service.tag}
+                    </span>
                   </div>
 
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-[#0a0a1a]">{service.title}</h3>
-                      <span className="text-sm text-[#9A8FFA] font-medium">{service.subtitle}</span>
+                      <h3 className="text-xl font-bold text-[#0a0a1a] group-hover:text-[#9A8FFA] transition-colors duration-300">{service.title}</h3>
+                      <span className="text-sm text-zinc-400 font-medium">{service.subtitle}</span>
                     </div>
                     <svg
-                      className={`service-arrow w-5 h-5 text-[#9A8FFA] transition-all duration-300 mt-1 ${
-                        hoveredIndex === index ? "translate-x-2 opacity-100" : "opacity-0"
+                      className={`w-5 h-5 text-[#9A8FFA] transition-all duration-300 mt-1 flex-shrink-0 ${
+                        hoveredIndex === index ? "translate-x-2 opacity-100" : "opacity-30"
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
@@ -314,21 +342,23 @@ export default function Services() {
                     {service.description}
                   </p>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2.5 pt-4 border-t border-zinc-100">
                     {service.features.map((feature, fi) => (
                       <motion.div
                         key={fi}
                         animate={{
-                          x: hoveredIndex === index ? 3 : 0,
+                          x: hoveredIndex === index ? 4 : 0,
                         }}
                         transition={{ duration: 0.2, delay: fi * 0.05 }}
-                        className="flex items-center gap-2.5 text-sm text-zinc-500 group-hover:text-zinc-700 transition-colors"
+                        className="flex items-center gap-3 text-sm text-zinc-500 group-hover:text-zinc-700 transition-colors"
                       >
-                        <motion.div
-                          animate={{ scale: hoveredIndex === index ? [1, 1.3, 1] : 1 }}
-                          transition={{ duration: 0.3 }}
-                          className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color}`}
-                        />
+                        <div className={`w-5 h-5 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                          hoveredIndex === index ? "scale-110" : ""
+                        }`}>
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
                         {feature}
                       </motion.div>
                     ))}
