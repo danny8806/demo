@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import RippleButton from "./RippleButton";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -42,7 +41,7 @@ export default function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] z-[60] transition-all duration-150"
+        className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-[#22D3EE] via-[#6366F1] to-[#22D3EE] z-[60] shadow-lg shadow-[#22D3EE]/20"
         style={{ width: `${scrollProgress}%` }}
       />
       <motion.nav
@@ -51,20 +50,20 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#0a0a1a]/90 backdrop-blur-xl shadow-lg shadow-black/10"
+            ? "bg-[#060612]/80 backdrop-blur-xl border-b border-white/[0.04] shadow-xl shadow-black/20"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18">
-            <a href="#home" className="flex flex-col items-center gap-0.5 group">
+            <a href="#home" className="flex flex-col items-center gap-0.5 group relative pt-6 pb-1">
               <img
                 src="/images/logo.png"
                 alt="Ucode Infotech"
-                className="h-12 w-auto object-contain"
+                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
               <span className="text-lg font-bold text-white tracking-tight leading-none">
-                Ucode <span className="text-[#06B6D4]">Infotech</span>
+                Ucode <span className="bg-gradient-to-r from-[#22D3EE] to-[#06B6D4] bg-clip-text text-transparent">Infotech</span>
               </span>
             </a>
 
@@ -75,41 +74,43 @@ export default function Navbar() {
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 text-base rounded-lg relative group ${
-                      isActive ? "text-white" : "text-zinc-300"
+                    className={`relative px-4 py-2 text-sm rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? "text-white"
+                        : "text-zinc-400 hover:text-zinc-200"
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    whileHover={{ scale: 1.04 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
-                    {link.label}
                     {isActive && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF]"
+                        className="absolute inset-0 rounded-xl bg-white/[0.06] border border-white/[0.06]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    {!isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] transition-all duration-300 group-hover:w-3/4" />
-                    )}
+                    <span className="relative z-10">{link.label}</span>
                   </motion.a>
                 );
               })}
             </div>
 
             <div className="flex items-center gap-4">
-              <button
+              <motion.button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-lg text-zinc-300 hover:text-white hover:bg-white/5 transition-colors"
+                className="lg:hidden p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] transition-colors"
                 aria-label="Toggle menu"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {mobileOpen ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   ) : (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                   )}
                 </svg>
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -121,7 +122,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden border-t border-white/10 bg-[#0a0a1a]/95 backdrop-blur-xl"
+              className="lg:hidden border-t border-white/[0.04] bg-[#060612]/95 backdrop-blur-xl"
             >
               <div className="px-4 py-4 space-y-1">
                 {navLinks.map((link) => (
@@ -129,10 +130,10 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block px-4 py-3 text-sm rounded-lg transition-all ${
+                    className={`block px-4 py-3 text-sm rounded-xl transition-all ${
                       activeSection === link.href.slice(1)
-                        ? "text-white bg-white/10"
-                        : "text-zinc-300 hover:text-white hover:bg-white/5"
+                        ? "text-white bg-white/[0.06]"
+                        : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
                     }`}
                   >
                     {link.label}
