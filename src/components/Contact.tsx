@@ -76,7 +76,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+    <section id="contact" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <LiquidBlob color="#9A8FFA" size={350} className="top-0 right-0 opacity-60" speed={11} />
       <LiquidBlob color="#C6C0FC" size={280} className="bottom-0 left-0 opacity-50" speed={9} delay={3} />
 

@@ -119,8 +119,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  scroll-snap-type: y proximity;
 }
+
+html.lenis { scroll-behavior: auto; }
+.lenis-locked { overflow: hidden; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a1a; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #9A8FFA, #C6C0FC); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9A8FFA; }
+* { scrollbar-width: thin; scrollbar-color: #9A8FFA #0a0a1a; }
 
 .content-visual-auto {
   content-visibility: auto;

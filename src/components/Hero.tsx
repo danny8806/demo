@@ -6,6 +6,9 @@ import MagneticButton from "./MagneticButton";
 import RippleButton from "./RippleButton";
 import LiquidBlob from "./LiquidBlob";
 import MeshGradient from "./MeshGradient";
+import ThreeScene from "./ThreeScene";
+import TextScramble from "./TextScramble";
+import ImageReveal from "./ImageReveal";
 import InteractiveTerminal from "./InteractiveTerminal";
 
 function ParticleField() {
@@ -77,34 +80,6 @@ function ParticleField() {
   return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
 }
 
-function TypewriterText({ text, className }: { text: string; className?: string }) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    let i = 0;
-    setDisplayed("");
-    setDone(false);
-    const timer = setInterval(() => {
-      if (i < text.length) {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(timer);
-        setDone(true);
-      }
-    }, 40);
-    return () => clearInterval(timer);
-  }, [text]);
-
-  return (
-    <span className={className}>
-      {displayed}
-      {!done && <span className="text-[#9A8FFA] animate-pulse">|</span>}
-    </span>
-  );
-}
-
 function FloatingOrb({ className, size, color, delay }: { className?: string; size: number; color: string; delay: number }) {
   return (
     <motion.div
@@ -145,12 +120,13 @@ export default function Hero() {
   }, []);
 
   return (
-     <section id="home" ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden snap-start">
+     <section id="home" ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#1a1040] to-[#0a0a1a]"
         style={{ y: parallaxY, scale: 1.1 }}
       />
       <MeshGradient />
+      <ThreeScene />
       <motion.div className="absolute inset-0 hero-grid opacity-30" style={{ y: parallaxY }} />
 
       <ParticleField />
@@ -182,7 +158,7 @@ export default function Hero() {
               Smart Solutions,{" "}
               <br />
               <span className="text-[#9A8FFA]">
-                <TypewriterText text="Real Results" className="inline" />
+                <TextScramble text="Real Results" className="inline" delay={0.8} />
               </span>
             </motion.h1>
 
@@ -280,7 +256,9 @@ export default function Hero() {
               <div className="floating-shape absolute -top-8 -left-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-[#9A8FFA]/20 to-[#C6C0FC]/20 border border-white/10" />
               <div className="floating-shape absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-br from-[#C6C0FC]/10 to-[#9A8FFA]/10 border border-white/10" style={{ animationDelay: "-2s" }} />
 
-              <InteractiveTerminal />
+              <ImageReveal delay={0.4}>
+                <InteractiveTerminal />
+              </ImageReveal>
             </div>
           </motion.div>
         </div>

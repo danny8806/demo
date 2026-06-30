@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import SplitFlipText from "./SplitFlipText";
 import TextReveal from "./TextReveal";
 import LiquidBlob from "./LiquidBlob";
 
@@ -91,7 +92,7 @@ export default function About() {
   const bgParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-[#0a0a1a] py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+    <section id="about" ref={sectionRef} className="relative bg-[#0a0a1a] py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <motion.div
         className="absolute inset-0 animated-grid"
         style={{ y: bgParallax }}
@@ -112,7 +113,7 @@ export default function About() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               <TextReveal text="Building Solutions," as="span" delay={0.2} />
               <br />
-              <TextReveal text="Enabling Progress" as="span" delay={0.5} mode="chars" className="gradient-text-animated" />
+              <SplitFlipText text="Enabling Progress" delay={0.5} className="gradient-text-animated" />
             </h2>
             <p className="mt-6 text-lg text-zinc-400 leading-relaxed">
               We specialize in high-quality web development, mobile app development, ERP solutions, and digital marketing services in Pathankot. Our experienced team delivers tailored technology solutions that boost efficiency, enhance customer experiences, and drive business growth.

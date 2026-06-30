@@ -54,7 +54,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#0a0a1a] border-t border-white/5 snap-start content-visual-auto">
+    <footer className="relative bg-[#0a0a1a] border-t border-white/5 content-visual-auto">
       <BackToTop />
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -98,11 +98,11 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 py-16">
           <div className="lg:col-span-2">
             <a href="#home" className="flex items-center gap-2 group mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#9A8FFA] to-[#C6C0FC] flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#9A8FFA]/40">
-                <svg className="w-5 h-5 text-[#0a0a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
+              <img
+                src="/images/logo.png"
+                alt="Ucode Infotech"
+                className="w-9 h-9 object-contain transition-transform duration-500 group-hover:scale-110"
+              />
               <span className="text-xl font-bold text-white tracking-tight">
                 Ucode <span className="text-[#9A8FFA]">Infotech</span>
               </span>

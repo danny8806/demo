@@ -58,11 +58,11 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18">
             <a href="#home" className="flex items-center gap-2 group">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#9A8FFA] to-[#C6C0FC] flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#9A8FFA]/40">
-                <svg className="w-5 h-5 text-[#0a0a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
+              <img
+                src="/images/logo.png"
+                alt="Ucode Infotech"
+                className="w-9 h-9 object-contain transition-transform duration-500 group-hover:scale-110"
+              />
               <span className="text-xl font-bold text-white tracking-tight">
                 Ucode <span className="text-[#9A8FFA]">Infotech</span>
               </span>
@@ -72,12 +72,14 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.slice(1);
                 return (
-                  <a
+                  <motion.a
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 text-sm rounded-lg transition-all duration-300 relative group ${
-                      isActive ? "text-white" : "text-zinc-300 hover:text-white"
+                    className={`px-4 py-2 text-sm rounded-lg relative group ${
+                      isActive ? "text-white" : "text-zinc-300"
                     }`}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
                     {link.label}
                     {isActive && (
@@ -89,7 +91,7 @@ export default function Navbar() {
                     {!isActive && (
                       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] transition-all duration-300 group-hover:w-3/4" />
                     )}
-                  </a>
+                  </motion.a>
                 );
               })}
             </div>

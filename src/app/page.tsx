@@ -11,31 +11,49 @@ import ScrollProgress from "@/components/ScrollProgress";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeText from "@/components/MarqueeText";
 import FaqSection from "@/components/FaqSection";
+import SmoothScroll from "@/components/SmoothScroll";
+import ParticleConstellation from "@/components/ParticleConstellation";
+import PerspectiveScroll from "@/components/PerspectiveScroll";
+import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
   return (
-    <>
+    <SmoothScroll>
+      <PageLoader />
       <NoiseOverlay />
+      <ParticleConstellation />
       <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
         <SectionDivider />
-        <Services />
+        <PerspectiveScroll>
+          <Services />
+        </PerspectiveScroll>
         <SectionDivider flip />
         <MarqueeText text="Web Development  App Development  UI/UX Design  Digital Marketing  ERP Solutions" speed={30} />
-        <About />
+        <PerspectiveScroll>
+          <About />
+        </PerspectiveScroll>
         <SectionDivider />
-        <CaseStudies />
+        <PerspectiveScroll>
+          <CaseStudies />
+        </PerspectiveScroll>
         <SectionDivider flip />
         <MarqueeText text="Trusted by clients in Pathankot  Punjab  & beyond" speed={20} direction="right" />
-        <Testimonials />
+        <PerspectiveScroll>
+          <Testimonials />
+        </PerspectiveScroll>
         <SectionDivider />
-        <FaqSection />
+        <PerspectiveScroll>
+          <FaqSection />
+        </PerspectiveScroll>
         <SectionDivider flip />
-        <Contact />
+        <PerspectiveScroll>
+          <Contact />
+        </PerspectiveScroll>
       </main>
       <Footer />
-    </>
+    </SmoothScroll>
   );
 }

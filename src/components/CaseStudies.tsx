@@ -73,7 +73,7 @@ export default function CaseStudies() {
   const filtered = activeTag === "All" ? blogs : blogs.filter((b) => b.tag === activeTag);
 
   return (
-    <section id="blogs" className="relative bg-zinc-50 py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+    <section id="blogs" className="relative bg-zinc-50 py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <LiquidBlob color="#9A8FFA" size={350} className="top-0 right-0" speed={12} />
       <LiquidBlob color="#C6C0FC" size={250} className="bottom-0 left-0" speed={9} delay={4} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -76,7 +76,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+    <section className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <LiquidBlob color="#9A8FFA" size={350} className="top-0 left-0 opacity-40" speed={11} />
       <LiquidBlob color="#C6C0FC" size={280} className="bottom-0 right-0 opacity-30" speed={8} delay={3} />
 

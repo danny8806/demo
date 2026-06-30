@@ -121,7 +121,7 @@ export default function Testimonials() {
   );
 
   return (
-    <section id="testimonials" className="relative py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+    <section id="testimonials" className="relative py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#1a1040] to-[#0a0a1a]" />
       <LiquidBlob color="#9A8FFA" size={400} className="top-0 right-0 opacity-20" speed={13} />
       <LiquidBlob color="#C6C0FC" size={300} className="bottom-0 left-0 opacity-15" speed={9} delay={3} />
