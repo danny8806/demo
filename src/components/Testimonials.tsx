@@ -11,7 +11,7 @@ const testimonials = [
     author: "Rahul Sharma",
     role: "Business Owner, Pathankot",
     avatar: "RS",
-    color: "from-[#9A8FFA] to-[#C6C0FC]",
+    color: "from-[#06B6D4] to-[#2DD4BF]",
     rating: 5,
   },
   {
@@ -123,14 +123,12 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="relative py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#1a1040] to-[#0a0a1a]" />
-      <LiquidBlob color="#9A8FFA" size={400} className="top-0 right-0 opacity-20" speed={13} />
-      <LiquidBlob color="#C6C0FC" size={300} className="bottom-0 left-0 opacity-15" speed={9} delay={3} />
-      <div className="absolute inset-0 animated-grid opacity-20" />
-
+      <LiquidBlob color="#06B6D4" size={400} className="top-0 right-0 opacity-20" speed={13} />
+      <LiquidBlob color="#2DD4BF" size={300} className="bottom-0 left-0 opacity-15" speed={9} delay={3} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-sm font-medium mb-4">
               Testimonials
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -198,7 +196,7 @@ export default function Testimonials() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.3, type: "spring" }}
-                    className="w-10 h-10 text-[#9A8FFA]/30 mx-auto mb-6"
+                    className="w-10 h-10 text-[#06B6D4]/30 mx-auto mb-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -239,12 +237,12 @@ export default function Testimonials() {
           <div className="mt-6">
             <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] rounded-full relative"
+                className="h-full bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] rounded-full relative"
                 initial={{ width: 0 }}
                 animate={{ width: `${(progress / 100) * 100}%` }}
                 transition={{ duration: 0.05 }}
               >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#C6C0FC] shadow-lg shadow-[#9A8FFA]/50" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#2DD4BF] shadow-lg shadow-[#06B6D4]/50" />
               </motion.div>
             </div>
           </div>
@@ -256,7 +254,7 @@ export default function Testimonials() {
                 onClick={() => goTo(i)}
                 className={`transition-all duration-500 ${
                   i === current
-                    ? "bg-[#9A8FFA] w-8 h-2.5 rounded-full shadow-lg shadow-[#9A8FFA]/30"
+                    ? "bg-[#06B6D4] w-8 h-2.5 rounded-full shadow-lg shadow-[#06B6D4]/30"
                     : "bg-white/20 hover:bg-white/40 w-2.5 h-2.5 rounded-full"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}

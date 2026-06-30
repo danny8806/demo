@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] z-[60] transition-all duration-150"
+        className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] z-[60] transition-all duration-150"
         style={{ width: `${scrollProgress}%` }}
       />
       <motion.nav
@@ -57,14 +57,14 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18">
-            <a href="#home" className="flex items-center gap-2 group">
+            <a href="#home" className="flex flex-col items-center gap-0.5 group">
               <img
                 src="/images/logo.png"
                 alt="Ucode Infotech"
-                className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                className="h-12 w-auto object-contain"
               />
-              <span className="text-xl font-bold text-white tracking-tight">
-                Ucode <span className="text-[#9A8FFA]">Infotech</span>
+              <span className="text-lg font-bold text-white tracking-tight leading-none">
+                Ucode <span className="text-[#06B6D4]">Infotech</span>
               </span>
             </a>
 
@@ -85,11 +85,11 @@ export default function Navbar() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC]"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF]"
                       />
                     )}
                     {!isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] transition-all duration-300 group-hover:w-3/4" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] transition-all duration-300 group-hover:w-3/4" />
                     )}
                   </motion.a>
                 );

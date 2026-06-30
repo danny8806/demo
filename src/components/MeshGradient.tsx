@@ -14,13 +14,6 @@ export default function MeshGradient() {
     let id: number;
     let t = 0;
 
-    const colors = [
-      [154 / 255, 143 / 255, 250 / 255],
-      [198 / 255, 192 / 255, 252 / 255],
-      [139 / 255, 127 / 255, 242 / 255],
-      [100 / 255, 90 / 255, 200 / 255],
-    ];
-
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -35,31 +28,28 @@ export default function MeshGradient() {
       const w = canvas.width;
       const h = canvas.height;
 
-      for (let y = 0; y < h; y += 40) {
-        for (let x = 0; x < w; x += 40) {
-          const nx = x / w;
-          const ny = y / h;
-          const dist = Math.sqrt((nx - 0.5) ** 2 + (ny - 0.5) ** 2) * 2;
+      const spots = [
+        { x: 0.2, y: 0.3, r: 0.02, g: 0.71, b: 0.83, s: 0.4 },
+        { x: 0.8, y: 0.2, r: 0.18, g: 0.83, b: 0.75, s: 0.35 },
+        { x: 0.5, y: 0.7, r: 0.02, g: 0.71, b: 0.83, s: 0.45 },
+        { x: 0.1, y: 0.7, r: 0.18, g: 0.83, b: 0.75, s: 0.3 },
+        { x: 0.9, y: 0.6, r: 0.02, g: 0.71, b: 0.83, s: 0.3 },
+      ];
 
-          const r =
-            Math.sin(nx * 8 + t) * 0.3 +
-            Math.sin(ny * 6 - t * 0.7) * 0.2 +
-            0.5;
-          const g =
-            Math.sin(nx * 6 - t * 0.5 + 1) * 0.3 +
-            Math.sin(ny * 8 + t * 0.8 + 2) * 0.2 +
-            0.5;
-          const b =
-            Math.sin(nx * 7 + t * 0.6 + 3) * 0.3 +
-            Math.sin(ny * 5 - t * 0.9 + 1) * 0.2 +
-            0.5;
+      for (const spot of spots) {
+        const cx = (spot.x + Math.sin(t * 0.5 + spot.x * 10) * 0.05) * w;
+        const cy = (spot.y + Math.cos(t * 0.4 + spot.y * 10) * 0.05) * h;
+        const radius = Math.max(w, h) * spot.s;
 
-          const alpha = Math.max(0, 0.06 * (1 - dist * 0.3));
+        const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        gradient.addColorStop(0, `rgba(${spot.r * 255},${spot.g * 255},${spot.b * 255},0.3)`);
+        gradient.addColorStop(0.5, `rgba(${spot.r * 255},${spot.g * 255},${spot.b * 255},0.1)`);
+        gradient.addColorStop(1, "rgba(0,0,0,0)");
 
-          ctx.fillStyle = `rgba(${r * 255},${g * 255},${b * 255},${alpha})`;
-          ctx.fillRect(x, y, 42, 42);
-        }
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
       }
+
       id = requestAnimationFrame(animate);
     };
     animate();

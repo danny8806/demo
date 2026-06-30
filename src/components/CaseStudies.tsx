@@ -10,10 +10,10 @@ const blogs = [
   {
     title: "8 Content Marketing Tips to Boost Traffic & Sales",
     tag: "Digital Marketing",
-    tagColor: "from-[#9A8FFA] to-[#C6C0FC]",
+    tagColor: "from-[#06B6D4] to-[#2DD4BF]",
     excerpt: "Discover 8 actionable content marketing tips to boost traffic, engage users, and increase sales for your business.",
     date: "23 Jan 2026",
-    image: "bg-gradient-to-br from-[#9A8FFA] to-[#6B5FD9]",
+    image: "bg-gradient-to-br from-[#06B6D4] to-[#6B5FD9]",
     icon: "📝",
   },
   {
@@ -28,7 +28,7 @@ const blogs = [
   {
     title: "10 Digital Marketing Tips for Small Businesses & Startups",
     tag: "Digital Marketing",
-    tagColor: "from-[#9A8FFA] to-[#C6C0FC]",
+    tagColor: "from-[#06B6D4] to-[#2DD4BF]",
     excerpt: "Discover 10 proven digital marketing tips to help small businesses and startups grow online effectively.",
     date: "23 Jan 2026",
     image: "bg-gradient-to-br from-indigo-400 to-purple-500",
@@ -74,12 +74,12 @@ export default function CaseStudies() {
 
   return (
     <section id="blogs" className="relative bg-zinc-50 py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
-      <LiquidBlob color="#9A8FFA" size={350} className="top-0 right-0" speed={12} />
-      <LiquidBlob color="#C6C0FC" size={250} className="bottom-0 left-0" speed={9} delay={4} />
+      <LiquidBlob color="#06B6D4" size={350} className="top-0 right-0" speed={12} />
+      <LiquidBlob color="#2DD4BF" size={250} className="bottom-0 left-0" speed={9} delay={4} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-sm font-medium mb-4">
               News & Articles
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a0a1a]">
@@ -107,7 +107,7 @@ export default function CaseStudies() {
                 {activeTag === tag && (
                   <motion.span
                     layoutId="blog-filter-bg"
-                    className="absolute inset-0 rounded-xl bg-[#9A8FFA] shadow-lg shadow-[#9A8FFA]/30"
+                    className="absolute inset-0 rounded-xl bg-[#06B6D4] shadow-lg shadow-[#06B6D4]/30"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -161,7 +161,7 @@ export default function CaseStudies() {
                           transition={{ duration: 0.3 }}
                           className="mt-6 pt-6 border-t border-white/20"
                         >
-                          <div className="flex items-center gap-2 text-sm text-[#9A8FFA] font-medium">
+                          <div className="flex items-center gap-2 text-sm text-[#06B6D4] font-medium">
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>

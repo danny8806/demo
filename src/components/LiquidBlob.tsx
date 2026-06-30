@@ -13,7 +13,7 @@ interface LiquidBlobProps {
 
 export default function LiquidBlob({
   className = "",
-  color = "#9A8FFA",
+  color = "#06B6D4",
   size = 300,
   speed = 12,
   delay = 0,

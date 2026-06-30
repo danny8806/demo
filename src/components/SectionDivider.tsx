@@ -39,9 +39,9 @@ export default function SectionDivider({ flip }: SectionDividerProps) {
               x2="100%"
               y2="0%"
             >
-              <stop offset="0%" stopColor="#9A8FFA" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#C6C0FC" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#9A8FFA" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#2DD4BF" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.3" />
             </linearGradient>
           </defs>
         </svg>

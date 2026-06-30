@@ -14,7 +14,7 @@ export default function ImageReveal({
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <motion.div
-        className="absolute inset-0 bg-[#9A8FFA] z-10 origin-left"
+        className="absolute inset-0 bg-[#06B6D4] z-10 origin-left"
         initial={{ scaleX: 1 }}
         whileInView={{ scaleX: 0 }}
         viewport={{ once: true }}

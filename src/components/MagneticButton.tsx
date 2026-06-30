@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface MagneticButtonProps {
   children: React.ReactNode;
   className?: string;
-  as?: "a" | "button";
+  as?: "a" | "button" | "div";
   href?: string;
   onClick?: () => void;
   strength?: number;
@@ -15,7 +15,7 @@ interface MagneticButtonProps {
 export default function MagneticButton({
   children,
   className,
-  as = "button",
+  as = "div",
   href,
   onClick,
   strength = 0.3,
@@ -38,7 +38,7 @@ export default function MagneticButton({
     setPos({ x: 0, y: 0 });
   }, []);
 
-  const Tag = as as "a" | "button";
+  const Tag = as as "a" | "button" | "div";
 
   return (
     <div

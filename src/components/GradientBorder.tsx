@@ -18,7 +18,7 @@ export default function GradientBorder({
         className="pointer-events-none absolute inset-0 rounded-[inherit]"
         style={{
           padding: "1.5px",
-          background: "linear-gradient(135deg, #9A8FFA, #C6C0FC, #9A8FFA, #C6C0FC)",
+          background: "linear-gradient(135deg, #06B6D4, #2DD4BF, #06B6D4, #2DD4BF)",
           backgroundSize: "300% 300%",
           WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
           WebkitMaskComposite: "xor",

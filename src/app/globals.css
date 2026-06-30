@@ -2,8 +2,8 @@
 
 :root {
   --primary: #0a0a1a;
-  --secondary: #9A8FFA;
-  --accent: #C6C0FC;
+  --secondary: #06B6D4;
+  --accent: #2DD4BF;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -30,16 +30,6 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-@keyframes grid-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
-}
-
-@keyframes grid-scroll-2 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
 }
 
 @keyframes spin-slow {
@@ -126,9 +116,9 @@ html.lenis { scroll-behavior: auto; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0a0a1a; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #9A8FFA, #C6C0FC); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #9A8FFA; }
-* { scrollbar-width: thin; scrollbar-color: #9A8FFA #0a0a1a; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #06B6D4, #2DD4BF); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+* { scrollbar-width: thin; scrollbar-color: #06B6D4 #0a0a1a; }
 
 .content-visual-auto {
   content-visibility: auto;
@@ -136,13 +126,13 @@ html.lenis { scroll-behavior: auto; }
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 25%, #9A8FFA 50%, #C6C0FC 75%, #0a0a1a 100%);
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 25%, #06B6D4 50%, #2DD4BF 75%, #0a0a1a 100%);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #9A8FFA, #C6C0FC, #b8b0ff);
+  background: linear-gradient(135deg, #06B6D4, #2DD4BF, #b8b0ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -158,21 +148,6 @@ html.lenis { scroll-behavior: auto; }
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.grid-pattern {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-.hero-grid {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: grid-scroll 20s linear infinite;
 }
 
 .service-card {
@@ -209,7 +184,7 @@ html.lenis { scroll-behavior: auto; }
 }
 
 .testimonial-gradient {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #9A8FFA 100%);
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #06B6D4 100%);
 }
 
 .shimmer-text {
@@ -238,25 +213,17 @@ html.lenis { scroll-behavior: auto; }
 .typewriter-cursor::after {
   content: "|";
   animation: cursor-blink 1s step-end infinite;
-  color: #9A8FFA;
-}
-
-.animated-grid {
-  background-image:
-    linear-gradient(rgba(154, 143, 250, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(154, 143, 250, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: grid-scroll-2 30s linear infinite;
+  color: #06B6D4;
 }
 
 .gradient-text-animated {
   background: linear-gradient(
     270deg,
-    #9A8FFA,
-    #C6C0FC,
+    #06B6D4,
+    #2DD4BF,
     #8B7FF2,
     #D7D2FD,
-    #9A8FFA
+    #06B6D4
   );
   background-size: 300% 100%;
   -webkit-background-clip: text;
@@ -279,12 +246,12 @@ html.lenis { scroll-behavior: auto; }
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9A8FFA;
+  background: #06B6D4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C6C0FC;
+  background: #2DD4BF;
 }
 
 .reveal {
@@ -332,7 +299,7 @@ html.lenis { scroll-behavior: auto; }
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #9A8FFA, #C6C0FC, #8B7FF2, #9A8FFA);
+  background: linear-gradient(135deg, #06B6D4, #2DD4BF, #8B7FF2, #06B6D4);
   background-size: 300% 300%;
   animation: gradient-shift 4s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

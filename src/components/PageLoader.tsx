@@ -45,11 +45,11 @@ export default function PageLoader() {
               animate={{ y: [0, -4, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             >
-              Ucode <span className="text-[#9A8FFA]">Infotech</span>
+              Ucode <span className="text-[#06B6D4]">Infotech</span>
             </motion.h1>
             <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] rounded-full"
+                className="h-full bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] rounded-full"
                 style={{ width: `${progress * 100}%` }}
               />
             </div>

@@ -67,14 +67,14 @@ function SkillBar({ label, percentage, delay }: { label: string; percentage: num
     <div ref={ref} className="space-y-1.5">
       <div className="flex justify-between text-sm">
         <span className="text-zinc-300">{label}</span>
-        <span className="text-[#9A8FFA]">{percentage}%</span>
+        <span className="text-[#06B6D4]">{percentage}%</span>
       </div>
       <div className="h-2 bg-white/5 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={inView ? { width: `${percentage}%` } : {}}
           transition={{ duration: 1.5, delay, ease: "easeOut" }}
-          className="h-full rounded-full bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC]"
+          className="h-full rounded-full bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF]"
         />
       </div>
     </div>
@@ -85,29 +85,19 @@ export default function About() {
   const statsRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const bgParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <section id="about" ref={sectionRef} className="relative bg-[#0a0a1a] py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
-      <motion.div
-        className="absolute inset-0 animated-grid"
-        style={{ y: bgParallax }}
-      />
-
-      <LiquidBlob color="#9A8FFA" size={450} className="top-0 right-0 opacity-30" speed={14} />
-      <LiquidBlob color="#C6C0FC" size={350} className="bottom-0 left-0 opacity-25" speed={10} delay={2} />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#9A8FFA]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0s" }} />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C6C0FC]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-[#9A8FFA]/5 rounded-full blur-3xl" style={{ animation: "aurora 8s ease-in-out infinite" }} />
+      <LiquidBlob color="#06B6D4" size={450} className="top-0 right-0 opacity-30" speed={14} />
+      <LiquidBlob color="#2DD4BF" size={350} className="bottom-0 left-0 opacity-25" speed={10} delay={2} />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#06B6D4]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0s" }} />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#2DD4BF]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-[#06B6D4]/5 rounded-full blur-3xl" style={{ animation: "aurora 8s ease-in-out infinite" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <ScrollReveal direction="left" distance={60}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-sm font-medium mb-4">
               About Ucode Infotech
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -135,7 +125,7 @@ export default function About() {
                   className="flex items-center gap-3"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-                    <path d="M7.61069 15.6913C5.57786 15.3025 3.77296 14.124 2.47482 12.5397C1.08881 10.8481 0.280511 8.69396 0.389311 6.54448C0.600013 2.38179 4.18604 -0.495177 8.38931 0.308668C10.6532 0.741629 12.0618 3.71742 13.3756 5.56959C14.5011 7.1562 15.7099 7.49558 15.6107 9.45546C15.3957 13.7033 11.814 16.4951 7.61069 15.6913Z" fill="#9A8FFA" />
+                    <path d="M7.61069 15.6913C5.57786 15.3025 3.77296 14.124 2.47482 12.5397C1.08881 10.8481 0.280511 8.69396 0.389311 6.54448C0.600013 2.38179 4.18604 -0.495177 8.38931 0.308668C10.6532 0.741629 12.0618 3.71742 13.3756 5.56959C14.5011 7.1562 15.7099 7.49558 15.6107 9.45546C15.3957 13.7033 11.814 16.4951 7.61069 15.6913Z" fill="#06B6D4" />
                   </svg>
                   <span className="text-zinc-300">{item}</span>
                 </motion.div>
@@ -164,7 +154,7 @@ export default function About() {
                     step: "01",
                     title: "Explore Our Solutions",
                     description: "Browse our wide range of web apps, ERP tools, and software solutions designed to streamline your business operations.",
-                    color: "from-[#9A8FFA] to-[#C6C0FC]",
+                    color: "from-[#06B6D4] to-[#2DD4BF]",
                   },
                   {
                     step: "02",
@@ -210,7 +200,7 @@ export default function About() {
               className="text-center group"
             >
               <motion.span
-                className="block text-4xl sm:text-5xl font-bold text-[#9A8FFA] mb-2 stat-number group-hover:scale-110 transition-transform duration-300"
+                className="block text-4xl sm:text-5xl font-bold text-[#06B6D4] mb-2 stat-number group-hover:scale-110 transition-transform duration-300"
               >
                 {statsInView ? (
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} inView={statsInView} />
@@ -223,7 +213,7 @@ export default function About() {
                 initial={{ width: 0 }}
                 animate={statsInView ? { width: "60%" } : { width: 0 }}
                 transition={{ duration: 1, delay: 0.5 + i * 0.2 }}
-                className="h-0.5 bg-gradient-to-r from-[#9A8FFA]/50 to-transparent rounded-full mx-auto mt-2"
+                className="h-0.5 bg-gradient-to-r from-[#06B6D4]/50 to-transparent rounded-full mx-auto mt-2"
               />
             </motion.div>
           ))}

@@ -51,7 +51,7 @@ export default function InteractiveTerminal() {
   };
 
   return (
-    <div className="relative glass-card rounded-3xl p-6 group hover:border-[#9A8FFA]/30 transition-all duration-500 overflow-hidden">
+    <div className="relative glass-card rounded-3xl p-6 group hover:border-[#06B6D4]/30 transition-all duration-500 overflow-hidden">
       <div className="flex items-center gap-3 mb-5">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-500/60 group-hover:bg-red-500 transition-colors" />
@@ -59,7 +59,7 @@ export default function InteractiveTerminal() {
           <div className="w-3 h-3 rounded-full bg-green-500/60 group-hover:bg-green-500 transition-colors" />
         </div>
         <span className="text-xs text-zinc-500">ucodeinfotech.com</span>
-        <span className="ml-auto text-[#9A8FFA] text-xs animate-pulse">● interactive</span>
+        <span className="ml-auto text-[#06B6D4] text-xs animate-pulse">● interactive</span>
       </div>
 
       <div className="font-mono text-sm space-y-1.5 min-h-[200px]">
@@ -79,7 +79,7 @@ export default function InteractiveTerminal() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-[#9A8FFA] ml-4"
+                className="text-[#06B6D4] ml-4"
               >
                 {h.output}
               </motion.div>

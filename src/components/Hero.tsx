@@ -127,15 +127,14 @@ export default function Hero() {
       />
       <MeshGradient />
       <ThreeScene />
-      <motion.div className="absolute inset-0 hero-grid opacity-30" style={{ y: parallaxY }} />
 
       <ParticleField />
 
-      <LiquidBlob color="#9A8FFA" size={500} className="top-1/3 -right-40 opacity-30" speed={15} />
-      <LiquidBlob color="#C6C0FC" size={400} className="bottom-1/3 -left-40 opacity-25" speed={12} delay={3} />
-      <FloatingOrb size={400} color="#9A8FFA" delay={0} className="top-20 -right-20" />
-      <FloatingOrb size={300} color="#C6C0FC" delay={2} className="bottom-40 -left-20" />
-      <FloatingOrb size={200} color="#9A8FFA" delay={4} className="top-1/3 left-1/4" />
+      <LiquidBlob color="#06B6D4" size={500} className="top-1/3 -right-40 opacity-30" speed={15} />
+      <LiquidBlob color="#2DD4BF" size={400} className="bottom-1/3 -left-40 opacity-25" speed={12} delay={3} />
+      <FloatingOrb size={400} color="#06B6D4" delay={0} className="top-20 -right-20" />
+      <FloatingOrb size={300} color="#2DD4BF" delay={2} className="bottom-40 -left-20" />
+      <FloatingOrb size={200} color="#06B6D4" delay={4} className="top-1/3 left-1/4" />
 
       <motion.div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a1a]/80" style={{ y: parallaxY }} />
 
@@ -157,7 +156,7 @@ export default function Hero() {
             >
               Smart Solutions,{" "}
               <br />
-              <span className="text-[#9A8FFA]">
+              <span className="text-[#06B6D4]">
                 <TextScramble text="Real Results" className="inline" delay={0.8} />
               </span>
             </motion.h1>
@@ -177,7 +176,7 @@ export default function Hero() {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
-              <MagneticButton strength={0.2}>
+              <MagneticButton strength={0.2} as="div">
                 <RippleButton
                   onClick={() => {
                     const el = document.getElementById("services");
@@ -215,7 +214,7 @@ export default function Hero() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.5, type: "spring" }}
-                  className="w-9 h-9 rounded-full border-2 border-[#0a0a1a] bg-[#9A8FFA] flex items-center justify-center text-xs font-bold text-[#0a0a1a]"
+                  className="w-9 h-9 rounded-full border-2 border-[#0a0a1a] bg-[#06B6D4] flex items-center justify-center text-xs font-bold text-[#0a0a1a]"
                 >
                   100+
                 </motion.div>
@@ -239,8 +238,8 @@ export default function Hero() {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <div className="floating-shape absolute -top-8 -left-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-[#9A8FFA]/20 to-[#C6C0FC]/20 border border-white/10" />
-              <div className="floating-shape absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-br from-[#C6C0FC]/10 to-[#9A8FFA]/10 border border-white/10" style={{ animationDelay: "-2s" }} />
+              <div className="floating-shape absolute -top-8 -left-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-[#06B6D4]/20 to-[#2DD4BF]/20 border border-white/10" />
+              <div className="floating-shape absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-br from-[#2DD4BF]/10 to-[#06B6D4]/10 border border-white/10" style={{ animationDelay: "-2s" }} />
 
               <ImageReveal delay={0.4}>
                 <InteractiveTerminal />

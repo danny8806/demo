@@ -26,7 +26,7 @@ function FloatInput({
 
   return (
     <div className="relative group">
-      <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
+      <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#06B6D4]/0 via-[#06B6D4]/0 to-[#2DD4BF]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#06B6D4]/20 group-focus-within:via-[#06B6D4]/10 group-focus-within:to-[#2DD4BF]/20 transition-all duration-500 blur-sm" />
       <input
         id={id}
         type={type}
@@ -36,14 +36,14 @@ function FloatInput({
         onChange={(e) => setValue(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="relative w-full px-4 pt-6 pb-2 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all peer"
+        className="relative w-full px-4 pt-6 pb-2 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all peer"
       />
       <motion.label
         htmlFor={id}
         animate={{
           y: isActive ? 0 : 20,
           fontSize: isActive ? "0.75rem" : "0.875rem",
-          color: focused ? "#9A8FFA" : isActive ? "#71717a" : "#a1a1aa",
+          color: focused ? "#06B6D4" : isActive ? "#71717a" : "#a1a1aa",
         }}
         transition={{ duration: 0.15 }}
         className={`absolute left-4 top-2 pointer-events-none ${isActive ? "opacity-100" : "opacity-0"}`}
@@ -76,14 +76,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
-      <LiquidBlob color="#9A8FFA" size={350} className="top-0 right-0 opacity-60" speed={11} />
-      <LiquidBlob color="#C6C0FC" size={280} className="bottom-0 left-0 opacity-50" speed={9} delay={3} />
+    <section id="contact" className="relative bg-[#FAFAF9] py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
+      <LiquidBlob color="#06B6D4" size={350} className="top-0 right-0 opacity-60" speed={11} />
+      <LiquidBlob color="#2DD4BF" size={280} className="bottom-0 left-0 opacity-50" speed={9} delay={3} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <ScrollReveal direction="left" distance={40}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#9A8FFA]/10 text-[#9A8FFA] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-sm font-medium mb-4">
               Get In Touch
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a0a1a] leading-tight">
@@ -129,7 +129,7 @@ export default function Contact() {
                   <div className="flex items-center gap-4 group"
                     style={{ transform: "translateZ(0)" }}
                   >
-                  <div className="w-12 h-12 rounded-xl bg-[#9A8FFA]/10 flex items-center justify-center text-[#9A8FFA] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#9A8FFA]/20 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#06B6D4]/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0 group-hover:scale-110 group-hover:bg-[#06B6D4]/20 transition-all duration-300">
                     {item.icon}
                   </div>
                   <div>
@@ -155,11 +155,11 @@ export default function Contact() {
               <FloatInput id="phone" label="Phone Number" placeholder="+91 98765 43210" />
 
               <div className="relative group">
-                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
+                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#06B6D4]/0 via-[#06B6D4]/0 to-[#2DD4BF]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#06B6D4]/20 group-focus-within:via-[#06B6D4]/10 group-focus-within:to-[#2DD4BF]/20 transition-all duration-500 blur-sm" />
                 <select
                   id="service"
                   required
-                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all"
+                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all"
                 >
                   <option value="">Select a service...</option>
                   <option value="web">Web Development</option>
@@ -174,7 +174,7 @@ export default function Contact() {
               </div>
 
               <div className="relative group">
-                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
+                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#06B6D4]/0 via-[#06B6D4]/0 to-[#2DD4BF]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#06B6D4]/20 group-focus-within:via-[#06B6D4]/10 group-focus-within:to-[#2DD4BF]/20 transition-all duration-500 blur-sm" />
                 <textarea
                   id="message"
                   rows={4}
@@ -182,7 +182,7 @@ export default function Contact() {
                   placeholder="Tell us about your project..."
                   maxLength={1000}
                   onChange={(e) => setCharCount(e.target.value.length)}
-                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all resize-none"
+                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all resize-none"
                 />
                 <div className="absolute bottom-2 right-3 text-xs text-zinc-400">
                   {charCount}/1000
@@ -193,7 +193,7 @@ export default function Contact() {
               <RippleButton
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 px-6 rounded-xl font-semibold text-[#0a0a1a] bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] hover:shadow-xl hover:shadow-[#9A8FFA]/30 transition-all duration-300 disabled:opacity-70"
+                className="w-full py-4 px-6 rounded-xl font-semibold text-[#0a0a1a] bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] hover:shadow-xl hover:shadow-[#06B6D4]/30 transition-all duration-300 disabled:opacity-70"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">

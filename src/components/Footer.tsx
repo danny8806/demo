@@ -27,7 +27,7 @@ function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-xl bg-gradient-to-br from-[#9A8FFA] to-[#C6C0FC] flex items-center justify-center text-[#0a0a1a] shadow-lg shadow-[#9A8FFA]/30 hover:scale-110 transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-xl bg-gradient-to-br from-[#06B6D4] to-[#2DD4BF] flex items-center justify-center text-[#0a0a1a] shadow-lg shadow-[#06B6D4]/30 hover:scale-110 transition-all duration-300"
           aria-label="Back to top"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,13 +56,12 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#0a0a1a] border-t border-white/5 content-visual-auto">
       <BackToTop />
-      <div className="absolute inset-0 grid-pattern opacity-30" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16 border-b border-white/5">
           <div className="max-w-xl">
             <h3 className="text-xl font-bold text-white mb-2">
-              Stay updated with <span className="text-[#9A8FFA]">Ucode Infotech</span>
+              Stay updated with <span className="text-[#06B6D4]">Ucode Infotech</span>
             </h3>
             <p className="text-zinc-400 text-sm mb-4">
               Get the latest insights on web development, digital marketing, app development, and tech trends delivered to your inbox.
@@ -74,11 +73,11 @@ export default function Footer() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all text-sm"
+                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#06B6D4]/50 focus:border-[#06B6D4] transition-all text-sm"
               />
               <button
                 type="submit"
-                className="px-6 py-3 rounded-xl font-medium text-sm text-[#0a0a1a] bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] hover:shadow-lg hover:shadow-[#9A8FFA]/30 transition-all duration-300 hover:scale-105 flex-shrink-0"
+                className="px-6 py-3 rounded-xl font-medium text-sm text-[#0a0a1a] bg-gradient-to-r from-[#06B6D4] to-[#2DD4BF] hover:shadow-lg hover:shadow-[#06B6D4]/30 transition-all duration-300 hover:scale-105 flex-shrink-0"
               >
                 {subscribed ? "Subscribed! ✓" : "Subscribe"}
               </button>
@@ -97,14 +96,14 @@ export default function Footer() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 py-16">
           <div className="lg:col-span-2">
-            <a href="#home" className="flex items-center gap-2 group mb-4">
+            <a href="#home" className="flex flex-col items-start gap-0.5 group mb-4">
               <img
                 src="/images/logo.png"
                 alt="Ucode Infotech"
-                className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                className="h-14 w-auto object-contain"
               />
-              <span className="text-xl font-bold text-white tracking-tight">
-                Ucode <span className="text-[#9A8FFA]">Infotech</span>
+              <span className="text-base font-bold text-white tracking-tight leading-none">
+                Ucode <span className="text-[#06B6D4]">Infotech</span>
               </span>
             </a>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
@@ -138,7 +137,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-sm text-zinc-400 hover:text-[#9A8FFA] transition-all duration-200 hover:translate-x-1 inline-block"
+                      className="text-sm text-zinc-400 hover:text-[#06B6D4] transition-all duration-200 hover:translate-x-1 inline-block"
                     >
                       {link}
                     </a>

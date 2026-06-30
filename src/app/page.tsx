@@ -15,6 +15,10 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ParticleConstellation from "@/components/ParticleConstellation";
 import PerspectiveScroll from "@/components/PerspectiveScroll";
 import PageLoader from "@/components/PageLoader";
+import PricingSection from "@/components/PricingSection";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import TeamSection from "@/components/TeamSection";
+import ClientLogos from "@/components/ClientLogos";
 
 export default function Home() {
   return (
@@ -31,18 +35,34 @@ export default function Home() {
           <Services />
         </PerspectiveScroll>
         <SectionDivider flip />
+        <PerspectiveScroll>
+          <PricingSection />
+        </PerspectiveScroll>
+        <SectionDivider />
         <MarqueeText text="Web Development  App Development  UI/UX Design  Digital Marketing  ERP Solutions" speed={30} />
         <PerspectiveScroll>
           <About />
         </PerspectiveScroll>
+        <SectionDivider flip />
+        <PerspectiveScroll>
+          <ProcessTimeline />
+        </PerspectiveScroll>
         <SectionDivider />
+        <PerspectiveScroll>
+          <TeamSection />
+        </PerspectiveScroll>
+        <SectionDivider flip />
         <PerspectiveScroll>
           <CaseStudies />
         </PerspectiveScroll>
-        <SectionDivider flip />
+        <SectionDivider />
         <MarqueeText text="Trusted by clients in Pathankot  Punjab  & beyond" speed={20} direction="right" />
         <PerspectiveScroll>
           <Testimonials />
+        </PerspectiveScroll>
+        <SectionDivider flip />
+        <PerspectiveScroll>
+          <ClientLogos />
         </PerspectiveScroll>
         <SectionDivider />
         <PerspectiveScroll>
