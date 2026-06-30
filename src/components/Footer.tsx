@@ -6,7 +6,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const footerLinks = {
   Services: ["Web Development", "App Development", "UI/UX Design", "Digital Marketing", "ERP Solutions", "Branding & Content"],
-  Company: ["About Us", "Blog", "Internship", "Contact Us", "Privacy Policy", "Terms of Service"],
+  Company: ["About Us", "Blog", "Contact Us", "Privacy Policy", "Terms of Service"],
   Support: ["Help Center", "FAQ", "Service Status", "Feedback", "Community", "Training"],
 };
 
@@ -101,7 +101,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Ucode Infotech"
-                className="w-12 h-12 object-contain transition-transform duration-500 group-hover:scale-110"
+                className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
               />
               <span className="text-xl font-bold text-white tracking-tight">
                 Ucode <span className="text-[#9A8FFA]">Infotech</span>

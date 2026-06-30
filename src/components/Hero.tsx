@@ -180,20 +180,6 @@ export default function Hero() {
               <MagneticButton strength={0.2}>
                 <RippleButton
                   onClick={() => {
-                    const el = document.getElementById("contact");
-                    el?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-[#0a0a1a] bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] rounded-2xl hover:shadow-2xl hover:shadow-[#9A8FFA]/40 transition-all duration-300 hover:scale-105"
-                >
-                  Internship
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </RippleButton>
-              </MagneticButton>
-              <MagneticButton strength={0.2}>
-                <RippleButton
-                  onClick={() => {
                     const el = document.getElementById("services");
                     el?.scrollIntoView({ behavior: "smooth" });
                   }}
