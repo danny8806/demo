@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, LayoutGroup, useScroll, useTransform } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import GlareCard from "./GlareCard";
 import GradientBorder from "./GradientBorder";
@@ -172,14 +172,31 @@ const filterLabels: Record<string, string> = {
 export default function Services() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [cardMousePos, setCardMousePos] = useState({ x: 50, y: 50 });
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [0, 40]);
 
   const filtered = activeFilter === "All" ? services : services.filter((s) => s.tag === activeFilter);
 
   return (
-    <section id="services" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UyZThmMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
-      <LiquidBlob color="#9A8FFA" size={400} className="top-0 -right-20 opacity-50" speed={10} />
-      <LiquidBlob color="#C6C0FC" size={300} className="bottom-0 -left-20 opacity-40" speed={8} delay={3} />
+    <section id="services" ref={sectionRef} className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#9A8FFA]/[0.02] via-transparent to-[#C6C0FC]/[0.02]" />
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[#9A8FFA]/[0.03] blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#C6C0FC]/[0.03] blur-[100px]" />
+        <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] rounded-full bg-[#9A8FFA]/[0.02] blur-[80px] animate-pulse" style={{ animationDuration: "8s" }} />
+      </motion.div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UyZThmMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+      <motion.div style={{ y: blob1Y }}><LiquidBlob color="#9A8FFA" size={400} className="top-0 -right-20 opacity-40" speed={10} /></motion.div>
+      <motion.div style={{ y: blob2Y }}><LiquidBlob color="#C6C0FC" size={300} className="bottom-0 -left-20 opacity-30" speed={8} delay={3} /></motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
@@ -294,11 +311,24 @@ export default function Services() {
                   transition={{ duration: 0.3 }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setCardMousePos({
+                      x: ((e.clientX - rect.left) / rect.width) * 100,
+                      y: ((e.clientY - rect.top) / rect.height) * 100,
+                    });
+                  }}
                   whileHover={{ y: -6 }}
                   className="service-card group relative bg-white rounded-2xl p-8 border border-zinc-200 hover:border-transparent cursor-pointer transition-all duration-500"
                 >
                 <div
                   className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`}
+                />
+                <motion.div
+                  className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(600px circle at ${cardMousePos.x}% ${cardMousePos.y}%, rgba(154, 143, 250, 0.06), transparent 40%)`,
+                  }}
                 />
                 <div
                   className={`absolute -top-10 -right-10 w-24 h-24 rounded-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700`}
