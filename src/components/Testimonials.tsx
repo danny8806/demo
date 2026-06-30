@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import LiquidBlob from "./LiquidBlob";
 
 const testimonials = [
   {
@@ -120,8 +121,10 @@ export default function Testimonials() {
   );
 
   return (
-    <section id="testimonials" className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="testimonials" className="relative py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#1a1040] to-[#0a0a1a]" />
+      <LiquidBlob color="#9A8FFA" size={400} className="top-0 right-0 opacity-20" speed={13} />
+      <LiquidBlob color="#C6C0FC" size={300} className="bottom-0 left-0 opacity-15" speed={9} delay={3} />
       <div className="absolute inset-0 animated-grid opacity-20" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

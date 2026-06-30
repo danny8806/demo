@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
+import RippleButton from "./RippleButton";
+import LiquidBlob from "./LiquidBlob";
 
 function FloatInput({
   id,
@@ -23,7 +25,8 @@ function FloatInput({
   const isActive = focused || value.length > 0;
 
   return (
-    <div className="relative">
+    <div className="relative group">
+      <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
       <input
         id={id}
         type={type}
@@ -33,7 +36,7 @@ function FloatInput({
         onChange={(e) => setValue(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="w-full px-4 pt-6 pb-2 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all peer"
+        className="relative w-full px-4 pt-6 pb-2 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all peer"
       />
       <motion.label
         htmlFor={id}
@@ -73,9 +76,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-24 sm:py-32 overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#9A8FFA]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C6C0FC]/5 rounded-full blur-3xl" />
+    <section id="contact" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
+      <LiquidBlob color="#9A8FFA" size={350} className="top-0 right-0 opacity-60" speed={11} />
+      <LiquidBlob color="#C6C0FC" size={280} className="bottom-0 left-0 opacity-50" speed={9} delay={3} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -151,11 +154,12 @@ export default function Contact() {
 
               <FloatInput id="phone" label="Phone Number" placeholder="+91 98765 43210" />
 
-              <div>
+              <div className="relative group">
+                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
                 <select
                   id="service"
                   required
-                  className="w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all"
+                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all"
                 >
                   <option value="">Select a service...</option>
                   <option value="web">Web Development</option>
@@ -169,7 +173,8 @@ export default function Contact() {
                 </select>
               </div>
 
-              <div className="relative">
+              <div className="relative group">
+                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#9A8FFA]/0 via-[#9A8FFA]/0 to-[#C6C0FC]/0 opacity-0 group-focus-within:opacity-100 group-focus-within:from-[#9A8FFA]/20 group-focus-within:via-[#9A8FFA]/10 group-focus-within:to-[#C6C0FC]/20 transition-all duration-500 blur-sm" />
                 <textarea
                   id="message"
                   rows={4}
@@ -177,7 +182,7 @@ export default function Contact() {
                   placeholder="Tell us about your project..."
                   maxLength={1000}
                   onChange={(e) => setCharCount(e.target.value.length)}
-                  className="w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all resize-none"
+                  className="relative w-full px-4 py-3.5 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#9A8FFA]/50 focus:border-[#9A8FFA] transition-all resize-none"
                 />
                 <div className="absolute bottom-2 right-3 text-xs text-zinc-400">
                   {charCount}/1000
@@ -185,11 +190,9 @@ export default function Contact() {
               </div>
 
               <MagneticButton strength={0.15}>
-              <motion.button
+              <RippleButton
                 type="submit"
                 disabled={loading}
-                whileHover={{ scale: loading ? 1 : 1.02 }}
-                whileTap={{ scale: loading ? 1 : 0.98 }}
                 className="w-full py-4 px-6 rounded-xl font-semibold text-[#0a0a1a] bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] hover:shadow-xl hover:shadow-[#9A8FFA]/30 transition-all duration-300 disabled:opacity-70"
               >
                 {loading ? (
@@ -205,7 +208,7 @@ export default function Contact() {
                 ) : (
                   "Send Message"
                 )}
-              </motion.button>
+              </RippleButton>
               </MagneticButton>
 
               <AnimatePresence>

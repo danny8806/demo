@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "./MagneticButton";
+import RippleButton from "./RippleButton";
+import LiquidBlob from "./LiquidBlob";
+import MeshGradient from "./MeshGradient";
+import InteractiveTerminal from "./InteractiveTerminal";
 
 function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -141,15 +145,18 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
+     <section id="home" ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden snap-start">
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#1a1040] to-[#0a0a1a]"
         style={{ y: parallaxY, scale: 1.1 }}
       />
+      <MeshGradient />
       <motion.div className="absolute inset-0 hero-grid opacity-30" style={{ y: parallaxY }} />
 
       <ParticleField />
 
+      <LiquidBlob color="#9A8FFA" size={500} className="top-1/3 -right-40 opacity-30" speed={15} />
+      <LiquidBlob color="#C6C0FC" size={400} className="bottom-1/3 -left-40 opacity-25" speed={12} delay={3} />
       <FloatingOrb size={400} color="#9A8FFA" delay={0} className="top-20 -right-20" />
       <FloatingOrb size={300} color="#C6C0FC" delay={2} className="bottom-40 -left-20" />
       <FloatingOrb size={200} color="#9A8FFA" delay={4} className="top-1/3 left-1/4" />
@@ -157,7 +164,7 @@ export default function Hero() {
       <motion.div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a1a]/80" style={{ y: parallaxY }} />
 
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 w-full"
         style={{ y: parallaxContentY, opacity: parallaxOpacity }}
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -166,16 +173,6 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-300 mb-6 hover:border-[#9A8FFA]/30 hover:bg-white/10 transition-all duration-300 group"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#9A8FFA] animate-pulse" />
-              Digital Services in Pathankot, Punjab
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -205,26 +202,32 @@ export default function Hero() {
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <MagneticButton strength={0.2}>
-                <a
-                  href="#contact"
+                <RippleButton
+                  onClick={() => {
+                    const el = document.getElementById("contact");
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-[#0a0a1a] bg-gradient-to-r from-[#9A8FFA] to-[#C6C0FC] rounded-2xl hover:shadow-2xl hover:shadow-[#9A8FFA]/40 transition-all duration-300 hover:scale-105"
                 >
                   Internship
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </RippleButton>
               </MagneticButton>
               <MagneticButton strength={0.2}>
-                <a
-                  href="#services"
+                <RippleButton
+                  onClick={() => {
+                    const el = document.getElementById("services");
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-zinc-300 border border-white/20 rounded-2xl hover:bg-white/5 hover:border-white/40 hover:text-white transition-all duration-300 hover:scale-105"
                 >
                   Explore Services
                   <svg className="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </a>
+                </RippleButton>
               </MagneticButton>
             </motion.div>
 
@@ -277,66 +280,7 @@ export default function Hero() {
               <div className="floating-shape absolute -top-8 -left-8 w-24 h-24 rounded-2xl bg-gradient-to-br from-[#9A8FFA]/20 to-[#C6C0FC]/20 border border-white/10" />
               <div className="floating-shape absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-br from-[#C6C0FC]/10 to-[#9A8FFA]/10 border border-white/10" style={{ animationDelay: "-2s" }} />
 
-              <div className="relative glass-card rounded-3xl p-8 group hover:border-[#9A8FFA]/30 transition-all duration-500">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/60 group-hover:bg-red-500 transition-colors" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/60 group-hover:bg-yellow-500 transition-colors" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/60 group-hover:bg-green-500 transition-colors" />
-                  </div>
-                  <span className="text-xs text-zinc-500">ucodeinfotech.com</span>
-                  <span className="ml-auto text-[#9A8FFA] text-xs animate-pulse">● live</span>
-                </div>
-                <div className="space-y-3 font-mono text-sm">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                    className="flex"
-                  >
-                    <span className="text-green-400">$</span>
-                    <span className="text-zinc-300 ml-2">build --solution=digital --target=growth</span>
-                  </motion.div>
-                  {[
-                    { text: "Website development ready ✓", delay: 2 },
-                    { text: "Mobile app framework built ✓", delay: 2.5 },
-                    { text: "Digital marketing campaigns live ✓", delay: 3 },
-                    { text: "Client satisfaction guaranteed ✓", delay: 3.5 },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: item.delay }}
-                      className="flex items-center gap-2"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-[#9A8FFA] animate-pulse" style={{ animationDelay: `${item.delay}s` }} />
-                      <span className="text-[#9A8FFA]">{item.text}</span>
-                    </motion.div>
-                  ))}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 4 }}
-                    className="mt-4 pt-4 border-t border-white/10"
-                  >
-                    <div className="flex justify-between text-zinc-500">
-                      <span>Project Status:</span>
-                      <span className="text-green-400">Active</span>
-                    </div>
-                    <div className="flex justify-between text-zinc-500 mt-1">
-                      <span>Client satisfaction:</span>
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-zinc-300"
-                      >
-                        98% positive
-                      </motion.span>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
+              <InteractiveTerminal />
             </div>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import RippleButton from "./RippleButton";
 
 const navLinks = [
   { label: "Home", href: "#home" },

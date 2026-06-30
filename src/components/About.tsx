@@ -3,6 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import TextReveal from "./TextReveal";
+import LiquidBlob from "./LiquidBlob";
 
 const stats = [
   { value: 100, suffix: "+", label: "Happy Clients", decimals: 0 },
@@ -44,9 +46,13 @@ function AnimatedCounter({
     return () => clearInterval(timer);
   }, [inView, value]);
 
+  const formatted = new Intl.NumberFormat("en-IN").format(
+    parseFloat(count.toFixed(decimals))
+  );
+
   return (
     <span>
-      {count.toFixed(decimals)}
+      {formatted}
       {suffix}
     </span>
   );
@@ -85,12 +91,14 @@ export default function About() {
   const bgParallax = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-[#0a0a1a] py-24 sm:py-32 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative bg-[#0a0a1a] py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
       <motion.div
         className="absolute inset-0 animated-grid"
         style={{ y: bgParallax }}
       />
 
+      <LiquidBlob color="#9A8FFA" size={450} className="top-0 right-0 opacity-30" speed={14} />
+      <LiquidBlob color="#C6C0FC" size={350} className="bottom-0 left-0 opacity-25" speed={10} delay={2} />
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#9A8FFA]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "0s" }} />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C6C0FC]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-[#9A8FFA]/5 rounded-full blur-3xl" style={{ animation: "aurora 8s ease-in-out infinite" }} />
@@ -102,8 +110,9 @@ export default function About() {
               About Ucode Infotech
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-              Building Solutions,<br />
-              <span className="gradient-text-animated">Enabling Progress</span>
+              <TextReveal text="Building Solutions," as="span" delay={0.2} />
+              <br />
+              <TextReveal text="Enabling Progress" as="span" delay={0.5} mode="chars" className="gradient-text-animated" />
             </h2>
             <p className="mt-6 text-lg text-zinc-400 leading-relaxed">
               We specialize in high-quality web development, mobile app development, ERP solutions, and digital marketing services in Pathankot. Our experienced team delivers tailored technology solutions that boost efficiency, enhance customer experiences, and drive business growth.

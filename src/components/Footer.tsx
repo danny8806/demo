@@ -54,7 +54,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#0a0a1a] border-t border-white/5">
+    <footer className="relative bg-[#0a0a1a] border-t border-white/5 snap-start content-visual-auto">
       <BackToTop />
       <div className="absolute inset-0 grid-pattern opacity-30" />
 

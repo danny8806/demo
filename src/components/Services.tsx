@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import GlareCard from "./GlareCard";
+import LiquidBlob from "./LiquidBlob";
 
 const featuresList = [
   {
@@ -173,9 +175,10 @@ export default function Services() {
   const filtered = activeFilter === "All" ? services : services.filter((s) => s.tag === activeFilter);
 
   return (
-    <section id="services" className="relative bg-white py-24 sm:py-32 overflow-hidden">
+    <section id="services" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden snap-start content-visual-auto">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UyZThmMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#9A8FFA]/5 rounded-full blur-3xl" />
+      <LiquidBlob color="#9A8FFA" size={400} className="top-0 -right-20 opacity-50" speed={10} />
+      <LiquidBlob color="#C6C0FC" size={300} className="bottom-0 -left-20 opacity-40" speed={8} delay={3} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
@@ -197,6 +200,7 @@ export default function Services() {
           <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {featuresList.map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.08}>
+                <GlareCard glareColor="rgba(154, 143, 250, 0.06)">
                 <motion.div
                   layout
                   className="group relative bg-white rounded-2xl p-6 border cursor-default hover:shadow-xl hover:shadow-[#9A8FFA]/5 transition-shadow duration-500"
@@ -212,6 +216,7 @@ export default function Services() {
                 </div>
               </div>
             </motion.div>
+                </GlareCard>
               </ScrollReveal>
             ))}
           </motion.div>
@@ -257,16 +262,17 @@ export default function Services() {
           <AnimatePresence mode="popLayout">
             {filtered.map((service, index) => (
               <ScrollReveal key={service.tag} delay={index * 0.05}>
+                <GlareCard glareColor="rgba(154, 143, 250, 0.08)">
                 <motion.div
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="service-card group relative bg-white rounded-2xl p-8 border border-zinc-200 hover:border-transparent cursor-pointer"
-              >
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="service-card group relative bg-white rounded-2xl p-8 border border-zinc-200 hover:border-transparent cursor-pointer"
+                >
                 <div
                   className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
@@ -325,6 +331,7 @@ export default function Services() {
                   </div>
                 </div>
               </motion.div>
+                </GlareCard>
             </ScrollReveal>
           ))}
         </AnimatePresence>
