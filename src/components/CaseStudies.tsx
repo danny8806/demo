@@ -4,61 +4,60 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import GlareCard from "./GlareCard";
-import LiquidBlob from "./LiquidBlob";
 
 const blogs = [
   {
     title: "8 Content Marketing Tips to Boost Traffic & Sales",
     tag: "Digital Marketing",
-    tagColor: "from-[#06B6D4] to-[#2DD4BF]",
+    tagColor: "from-[#22D3EE] to-[#06B6D4]",
     excerpt: "Discover 8 actionable content marketing tips to boost traffic, engage users, and increase sales for your business.",
     date: "23 Jan 2026",
-    image: "bg-gradient-to-br from-[#06B6D4] to-[#6B5FD9]",
+    image: "bg-gradient-to-br from-[#22D3EE]/90 to-[#6366F1]/80",
     icon: "📝",
   },
   {
     title: "Top 10 Mobile App Development Trends for Small Businesses",
     tag: "App Development",
-    tagColor: "from-pink-400 to-rose-300",
+    tagColor: "from-[#60A5FA] to-[#3B82F6]",
     excerpt: "Discover the top 10 mobile app development trends for small businesses in 2026. Stay ahead with AI, cross-platform tools, and more.",
     date: "23 Jan 2026",
-    image: "bg-gradient-to-br from-pink-400 to-rose-500",
+    image: "bg-gradient-to-br from-[#60A5FA]/90 to-[#6366F1]/80",
     icon: "📱",
   },
   {
     title: "10 Digital Marketing Tips for Small Businesses & Startups",
     tag: "Digital Marketing",
-    tagColor: "from-[#06B6D4] to-[#2DD4BF]",
+    tagColor: "from-[#22D3EE] to-[#06B6D4]",
     excerpt: "Discover 10 proven digital marketing tips to help small businesses and startups grow online effectively.",
     date: "23 Jan 2026",
-    image: "bg-gradient-to-br from-indigo-400 to-purple-500",
+    image: "bg-gradient-to-br from-[#22D3EE]/90 to-[#6366F1]/80",
     icon: "📊",
   },
   {
     title: "Why Your Business Needs a Responsive Website in 2026",
     tag: "Web Development",
-    tagColor: "from-blue-300 to-sky-300",
+    tagColor: "from-[#22D3EE] to-[#06B6D4]",
     excerpt: "Learn why responsive web design is critical for your business success and how it impacts SEO, user experience, and conversions.",
     date: "15 Jan 2026",
-    image: "bg-gradient-to-br from-blue-400 to-cyan-500",
+    image: "bg-gradient-to-br from-[#60A5FA]/90 to-[#22D3EE]/80",
     icon: "🌐",
   },
   {
     title: "ERP Implementation Guide for Growing Businesses",
     tag: "ERP Solutions",
-    tagColor: "from-lime-400 to-green-300",
+    tagColor: "from-[#6366F1] to-[#818CF8]",
     excerpt: "A complete guide to implementing ERP systems for growing businesses. Streamline operations and scale efficiently.",
     date: "10 Jan 2026",
-    image: "bg-gradient-to-br from-lime-500 to-green-600",
+    image: "bg-gradient-to-br from-[#6366F1]/90 to-[#818CF8]/80",
     icon: "⚙️",
   },
   {
     title: "UI/UX Design Principles That Drive Conversions",
     tag: "UI/UX Design",
-    tagColor: "from-indigo-300 to-purple-300",
+    tagColor: "from-[#60A5FA] to-[#22D3EE]",
     excerpt: "Explore the key UI/UX design principles that can dramatically improve your website conversion rates and user retention.",
     date: "05 Jan 2026",
-    image: "bg-gradient-to-br from-purple-400 to-indigo-500",
+    image: "bg-gradient-to-br from-[#6366F1]/90 to-[#22D3EE]/80",
     icon: "🎨",
   },
 ];
@@ -73,27 +72,25 @@ export default function CaseStudies() {
   const filtered = activeTag === "All" ? blogs : blogs.filter((b) => b.tag === activeTag);
 
   return (
-    <section id="blogs" className="relative bg-zinc-50 py-16 md:py-24 lg:py-32 overflow-hidden content-visual-auto">
-      <LiquidBlob color="#06B6D4" size={350} className="top-0 right-0" speed={12} />
-      <LiquidBlob color="#2DD4BF" size={250} className="bottom-0 left-0" speed={9} delay={4} />
+    <section id="blogs" className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#22D3EE]/10 text-[#06B6D4] text-sm font-semibold mb-4 border border-[#22D3EE]/20">
               News & Articles
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a0a1a]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A]">
               Insights &{" "}
-              <span className="gradient-text-animated">Updates</span>
+              <span className="bg-gradient-to-r from-[#22D3EE] via-[#60A5FA] to-[#6366F1] bg-clip-text text-transparent">Updates</span>
             </h2>
-            <p className="mt-4 text-lg text-zinc-600">
+            <p className="mt-4 text-lg text-zinc-500">
               Stay informed with the latest trends, tips, and insights from our team on digital marketing, web development, and more.
             </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-12 p-1.5 bg-white rounded-2xl max-w-fit mx-auto border border-zinc-100">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-12 p-1.5 bg-zinc-50/80 backdrop-blur-sm rounded-2xl max-w-fit mx-auto border border-zinc-100">
             {filterTags.map((tag) => (
               <button
                 key={tag}
@@ -101,13 +98,13 @@ export default function CaseStudies() {
                 className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeTag === tag
                     ? "text-white"
-                    : "text-zinc-600 hover:text-zinc-900"
+                    : "text-zinc-500 hover:text-zinc-800"
                 }`}
               >
                 {activeTag === tag && (
                   <motion.span
                     layoutId="blog-filter-bg"
-                    className="absolute inset-0 rounded-xl bg-[#06B6D4] shadow-lg shadow-[#06B6D4]/30"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#22D3EE] to-[#06B6D4] shadow-lg shadow-[#22D3EE]/30"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -121,7 +118,7 @@ export default function CaseStudies() {
           <AnimatePresence mode="popLayout">
             {filtered.map((blog, i) => (
               <ScrollReveal key={blog.title} delay={i * 0.08}>
-                <GlareCard glareColor="rgba(255, 255, 255, 0.1)">
+                <GlareCard glareColor="rgba(34, 211, 238, 0.08)">
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -161,7 +158,7 @@ export default function CaseStudies() {
                           transition={{ duration: 0.3 }}
                           className="mt-6 pt-6 border-t border-white/20"
                         >
-                          <div className="flex items-center gap-2 text-sm text-[#06B6D4] font-medium">
+                          <div className="flex items-center gap-2 text-sm text-[#22D3EE] font-medium">
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
